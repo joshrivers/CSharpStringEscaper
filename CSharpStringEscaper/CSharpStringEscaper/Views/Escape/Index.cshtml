@@ -24,7 +24,7 @@
                 <p class="help-block">XML or JSON, any old thing in here will be converted to a nice source string down there.</p>
             </div>
             <button type="submit" class="btn btn-default">Convert!</button>
-            <hr/>
+            <hr />
             <div class="form-group">
                 <label for="escapedCodeOutput">Escaped C# source</label>
                 <textarea class="form-control" id="escapedCodeOutput" placeholder='go on. press the button. you know you want to!'>@Html.Raw(ViewBag.result)</textarea>
@@ -33,6 +33,9 @@
         </form>
 
     </div>
+    <p class="text-center">
+        From a <a href="http://stackoverflow.com/a/324812">StackOverflow Answer</a>. Assembled by <a href="http://www.joshrivers.me">Josh Rivers</a> of <a href="http://radianttiger.com">Recursive Erudition</a>. Source Code on <a href="https://bitbucket.org/joshrivers/csharpstringescaper">BitBucket</a>.
+    </p>
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
