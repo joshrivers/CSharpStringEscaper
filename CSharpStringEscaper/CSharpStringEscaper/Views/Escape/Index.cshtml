@@ -7,29 +7,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C# String Escaper</title>
+    <title>Escape C# Strings</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
 
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-        <form role="form">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+        <div class="starter-template">
+            <h1>Escape C# Strings</h1>
+            <p class="lead">If you have a string that you'd like to put in your C# code files, but it needs a lot of characters escaped, this form will regenerate it for you as a codedom formatted string.</p>
+        </div>
+        <form role="form" action="" method="POST">
+            <div class="form-group">
+                <label for="unescapedCodeInput">String to Escape</label>
+                <textarea class="form-control" id="unescapedCodeInput" name="unescapedCodeInput" placeholder='try something like cmd /c "c:\Program Files\Something\Or\Other.exe"'>@Html.Raw(ViewBag.input)</textarea>
+                <p class="help-block">XML or JSON, any old thing in here will be converted to a nice source string down there.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" @(ViewBag.multilineChecked ? "checked='true'" : "") name="useMultiline">
+                    Format into multiple lines
+                    <p class="help-block">Visual Studio slows down <em>a lot</em> if source code lines get too long.</p>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Convert!</button>
+            <hr/>
+            <div class="form-group">
+                <label for="escapedCodeOutput">Escaped C# source</label>
+                <textarea class="form-control" id="escapedCodeOutput" placeholder='go on. press the button. you know you want to!'>@Html.Raw(ViewBag.result)</textarea>
+                <p class="help-block">This should be ready to paste straight into your .cs file.</p>
+            </div>
+        </form>
 
     </div>
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
