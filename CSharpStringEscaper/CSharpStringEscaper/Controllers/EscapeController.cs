@@ -21,14 +21,12 @@ namespace CSharpStringEscaper.Controllers
         [ValidateInput(false)]
         public ActionResult Index(FormCollection form)
         {
-            bool multilineChecked = !string.IsNullOrEmpty(form["useMultiline"]);
             this.ViewBag.input = form["unescapedCodeInput"];
-            this.ViewBag.result = ToLiteral(form["unescapedCodeInput"], multilineChecked);
-            this.ViewBag.multilineChecked = multilineChecked;
+            this.ViewBag.result = ToLiteral(form["unescapedCodeInput"]);
             return View();
         }
 
-        private static string ToLiteral(string input, bool multiline)
+        private static string ToLiteral(string input)
         {
             using (var writer = new StringWriter())
             {
@@ -36,10 +34,6 @@ namespace CSharpStringEscaper.Controllers
                 {
                     provider.GenerateCodeFromExpression(new CodePrimitiveExpression(input), writer, new CodeGeneratorOptions { IndentString = "\t" });
                     var literal = writer.ToString();
-                    if (!multiline)
-                    {
-                        literal = literal.Replace(string.Format("\" +{0}\t\"", Environment.NewLine), "");
-                    }
                     return literal;
                 }
             }

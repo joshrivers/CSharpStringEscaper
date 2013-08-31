@@ -23,13 +23,6 @@
                 <textarea class="form-control" id="unescapedCodeInput" name="unescapedCodeInput" placeholder='try something like cmd /c "c:\Program Files\Something\Or\Other.exe"'>@Html.Raw(ViewBag.input)</textarea>
                 <p class="help-block">XML or JSON, any old thing in here will be converted to a nice source string down there.</p>
             </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" @(ViewBag.multilineChecked ? "checked='true'" : "") name="useMultiline">
-                    Format into multiple lines
-                    <p class="help-block">Visual Studio slows down <em>a lot</em> if source code lines get too long.</p>
-                </label>
-            </div>
             <button type="submit" class="btn btn-default">Convert!</button>
             <hr/>
             <div class="form-group">
